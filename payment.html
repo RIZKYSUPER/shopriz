@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://files.catbox.moe/ynwupc.jpeg" alt="RIZKY SUPER Logo">
+            <h1>RIZKY SUPER</h1>
+        </div>
+    </header>
+
+    <main>
+        <h1>Pembayaran</h1>
+        <div id="payment-details">
+            <!-- Detail pembayaran akan diisi oleh JavaScript -->
+        </div>
+        <div id="payment-methods">
+            <button id="dana">Bayar dengan Dana</button>
+            <button id="ovo">Bayar dengan OVO</button>
+            <button id="gopay">Bayar dengan GoPay</button>
+            <button id="qris">Bayar dengan QRIS</button>
+        </div>
+    </main>
+
+    <script>
+        // Ambil data dari localStorage
+        const productName = localStorage.getItem('productName');
+        const productPrice = localStorage.getItem('productPrice');
+
+        // Tampilkan detail pembayaran
+        const paymentDetails = document.getElementById('payment-details');
+        paymentDetails.innerHTML = `
+            <p>Produk: ${productName}</p>
+            <p>Harga: Rp ${productPrice}</p>
+        `;
+
+        // Simulasikan proses pembayaran
+        const paymentMethods = document.getElementById('payment-methods');
+        paymentMethods.addEventListener('click', function(event) {
+            if (event.target.id === 'dana') {
+                alert('Anda memilih pembayaran Dana. Nomor Dana: 081234567890');
+            } else if (event.target.id === 'ovo') {
+                alert('Anda memilih pembayaran OVO. Nomor OVO: 081234567890');
+            } else if (event.target.id === 'gopay') {
+                alert('Anda memilih pembayaran GoPay. Nomor GoPay: 081234567890');
+            } else if (event.target.id === 'qris') {
+                alert('Anda memilih pembayaran QRIS. Tampilkan QRIS di sini.');
+            }
+        });
+    </script>
+</body>
+</html>
